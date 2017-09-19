@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import com.swapnil.annotation.Bean;
 import com.swapnil.constant.DIType;
 
-@Bean(type=DIType.DIBySetter)
+@Bean
 public class Employee {
 
 	private Long empId;
@@ -49,6 +49,11 @@ public class Employee {
 		this.empName = empName;
 		this.salary = salary;
 	}
+	/*public Employee() {
+		this.empId = null;
+		this.empName = null;
+		this.salary = BigDecimal.ZERO;
+	}*/
 	
 	
 	
