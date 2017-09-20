@@ -19,8 +19,8 @@ public class Client {
 
 	Map<String,Class<?>> annotattedMap = new HashMap<String, Class<?>>();
 	Utility util;
-	
-	
+
+
 	@SuppressWarnings("unchecked")
 	public <T> T getBean(String objName,Map<String,Object> constParams) throws Exception{
 		T output = null;
@@ -33,41 +33,41 @@ public class Client {
 				diType = bean.type();
 				Constructor[] constructors = cls.getConstructors();
 				switch(diType){
-					case DIByConstructore :
-						for(Constructor constructor : constructors){
-							int paramsCount = constructor.getParameterCount();
-							if(paramsCount != constParams.size())
-								throw new Exception(Constants.MISSING_PARAMETER);
-							Field[] fields = cls.getDeclaredFields();
-							//System.out.println("checking fields "+fields.length+" count : "+paramsCount);
-							if(util.checkParams(constParams, fields)){
-								output = (T) constructor.newInstance(util.populateObjects(constParams, fields));
-							}
-							break;
-								
+				case DIByConstructore :
+					for(Constructor constructor : constructors){
+						int paramsCount = constructor.getParameterCount();
+						if(paramsCount != constParams.size())
+							throw new Exception(Constants.MISSING_PARAMETER);
+						Field[] fields = cls.getDeclaredFields();
+						//System.out.println("checking fields "+fields.length+" count : "+paramsCount);
+						if(util.checkParams(constParams, fields)){
+							output = (T) constructor.newInstance(util.populateObjects(constParams, fields));
 						}
 						break;
-					case DIBySetter :
-						output = (T) cls.newInstance();
-						for(Field field : cls.getDeclaredFields()){
-							for(Method method : cls.getMethods()){
-								if((method.getName().startsWith("set")) && (method.getName().length() == (field.getName().length() + 3))){
-									 if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase())){
-										 try{
-											 method.setAccessible(true);
-											 if(util.checkParamType(field,constParams.get(field.getName()))){
-												 method.invoke(output,constParams.get(field.getName()));
-											 }else{
-												 throw new Exception(Constants.PARAM_TYPE_MISMATCH+""+field.getName());
-											 }
-										 }catch(Exception e){
-											 throw e;
-										 }
-									 }
+
+					}
+					break;
+				case DIBySetter :
+					output = (T) cls.newInstance();
+					for(Field field : cls.getDeclaredFields()){
+						for(Method method : cls.getMethods()){
+							if((method.getName().startsWith("set")) && (method.getName().length() == (field.getName().length() + 3))){
+								if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase())){
+									try{
+										method.setAccessible(true);
+										if(util.checkParamType(field,constParams.get(field.getName()))){
+											method.invoke(output,constParams.get(field.getName()));
+										}else{
+											throw new Exception(Constants.PARAM_TYPE_MISMATCH+""+field.getName());
+										}
+									}catch(Exception e){
+										throw e;
+									}
 								}
 							}
 						}
-						break;
+					}
+					break;
 				default:
 					break;
 				}
@@ -77,15 +77,15 @@ public class Client {
 		}
 		return  output;
 	}
-	
+
 	public Utility getUtil(){
 		return util;
 	}
-	
+
 	public void setAnnotattedMap( Map<String,Class<?>> map ){
 		this.annotattedMap = map;
 	}
-	
+
 	public static void main(String[] args) {
 		Client client = new Client();
 		client.setAnnotattedMap(client.getUtil().allFoundClassesAnnotatedWithEntityToBeScanned());
@@ -96,7 +96,7 @@ public class Client {
 			argsMap.put("salary", new BigDecimal(20000));
 			Employee e = client.getBean("emp",argsMap);
 			System.out.println("Got Employee Bean : "+e.toString());
-			
+
 			Map<String, Object> argsMapStu = new HashMap<String,Object>();
 			argsMapStu.put("rollNo", 2L);
 			argsMapStu.put("name", "Swapnil Bhosale");

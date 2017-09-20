@@ -29,7 +29,7 @@ public class Employee {
 	public void setSalary(BigDecimal salary) {
 		this.salary = salary;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -42,7 +42,7 @@ public class Employee {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 	public Employee(Long empId, String empName, BigDecimal salary) {
 		super();
 		this.empId = empId;
@@ -50,10 +50,10 @@ public class Employee {
 		this.salary = salary;
 	}
 	public Employee() {
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
 }
