@@ -7,6 +7,11 @@ import java.lang.annotation.Target;
 
 import com.swapnil.constant.DIType;
 
+/**
+ * @author Swapnil Bhosale
+ * This is Bean annotation implementation
+ * uses params as name of the bean and Dependency Injection type
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface Bean {

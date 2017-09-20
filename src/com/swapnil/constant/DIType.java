@@ -1,5 +1,9 @@
 package com.swapnil.constant;
 
+/**
+ * @author Swapnil Bhosale
+ * This is Enum for DI types
+ */
 public enum DIType {
 
 	DIByConstructore("constructore"),

@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 import com.swapnil.annotation.Bean;
 import com.swapnil.constant.DIType;
 
+/**
+ * @author Swapnil Bhosale
+ * This is just a POJO class for Employee
+ */
 @Bean(name="emp",type=DIType.DIBySetter)
 public class Employee {
 

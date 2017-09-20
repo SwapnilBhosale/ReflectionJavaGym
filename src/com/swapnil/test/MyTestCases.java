@@ -16,8 +16,8 @@ import com.swapnil.client.Client;
 import com.swapnil.constant.Constants;
 
 /**
- * @author bhosale_s
- *
+ * @author Swapnil Bhsale
+ * This is Unit Test Case class 
  */
 public class MyTestCases {
 
@@ -27,6 +27,7 @@ public class MyTestCases {
 	private static String genericErrorMessage = "Should throw an Exception";
 
 	/**
+	 * This set up the stubs for main method and creates Map for testing
 	 * @throws java.lang.Exception
 	 */
 	@Before
@@ -46,6 +47,11 @@ public class MyTestCases {
 
 
 
+	/**
+	 * This creates a bean of employee class and test if values are populated correctly
+	 * Employee object is created using DI using Setter
+	 * @throws java.lang.Exception
+	 */
 	@Test
 	public void getEmpBeanBySetterInjection() throws Exception {
 		Employee emp = client.getBean("emp", argsMapEmp);
@@ -54,6 +60,11 @@ public class MyTestCases {
 		assertEquals(emp.getSalary(), new BigDecimal(20000));
 	}
 
+	/**
+	 * This should throw an error with message of type mismatch as empId expects 
+	 * Long and providing value as an Integer
+	 * @throws java.lang.Exception
+	 */
 	@Test(expected = Exception.class)
 	public void empShouldThrowparamMismatchException() throws Exception{
 		try{
@@ -66,6 +77,11 @@ public class MyTestCases {
 		fail(genericErrorMessage);
 	}
 
+	/**
+	 * This creates a bean of Student class and test if values are populated correctly
+	 * Student object is created using DI using Constructor
+	 * @throws java.lang.Exception
+	 */
 	@Test
 	public void getStuBeanByConstructorInjection() throws Exception {
 		Student student = client.getBean("student", argsMapStu);
@@ -73,6 +89,12 @@ public class MyTestCases {
 		assertEquals(student.getName(), "Swapnil");
 	}
 
+	/**
+	/**
+	 * This should throw an error with message of type mismatch as rollNo expects 
+	 * Long and providing value as an Integer
+	 * @throws java.lang.Exception
+	 */
 	@Test(expected = Exception.class)
 	public void stuShouldThrowparamMismatchException() throws Exception{
 		try{
@@ -85,13 +107,34 @@ public class MyTestCases {
 		fail(genericErrorMessage);
 	}
 
+	/**
+	 * This should throw an error with message of missing parameter as name is not provided
+	 * @throws java.lang.Exception
+	 */
 	@Test(expected = Exception.class)
-	public void stuShouldThrowMissingParamxception() throws Exception{
+	public void stuShouldThrowMissingParamException() throws Exception{
 		try{
 			argsMapStu.remove("name");
 			Student stu = client.getBean("student", argsMapStu);
 		}catch(Exception e){
 			assertEquals(e.getMessage(), Constants.MISSING_PARAMETER);
+			throw e;
+		}
+		fail(genericErrorMessage);
+	}
+	
+	/**
+	 * This should throw an error with message of bean not found
+	 * As there is no class annotated wwith Bean and having name as 'studentBean'
+	 * @throws java.lang.Exception
+	 */
+	@Test(expected = Exception.class)
+	public void shouldThrowBeanNotFoundxception() throws Exception{
+		try{
+			Student stu = client.getBean("studentBean", new HashMap<String,Object>());
+		}catch(Exception e){
+			assertEquals(e.getMessage(), Constants.BEAN_NOT_FOUND+"studentBean");
+			
 			throw e;
 		}
 		fail(genericErrorMessage);

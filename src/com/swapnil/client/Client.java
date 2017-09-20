@@ -15,12 +15,24 @@ import com.swapnil.constant.Constants;
 import com.swapnil.constant.DIType;
 import com.swapnil.util.Utility;
 
+
+/**
+ * @author Swapnil Bhosale
+ * This is Main class for execution
+ */
 public class Client {
 
 	Map<String,Class<?>> annotattedMap = new HashMap<String, Class<?>>();
 	Utility util;
 
 
+	 /**
+	   * This method is used to get the bean runtime using reflection
+	   * @param objName This is the name of the bean
+	   * @param constParams  this is a Map which holds field name and values
+	   * 					 which needs to be initialized
+	   * @return Generic This returns the object of the Bean.
+	  */
 	@SuppressWarnings("unchecked")
 	public <T> T getBean(String objName,Map<String,Object> constParams) throws Exception{
 		T output = null;
@@ -73,19 +85,31 @@ public class Client {
 				}
 			}
 		}else{
-			throw new Exception("Please check the bean name. No bean found with name : "+objName);
+			throw new Exception(Constants.BEAN_NOT_FOUND+""+objName);
 		}
 		return  output;
 	}
 
+	/**
+	   * This is getter function for Utility class
+	   * @return Utility reference to Utility class object.
+	  */
 	public Utility getUtil(){
 		return util;
 	}
 
+	/**
+	   * This is setter method for storing classes with annotated map
+	   * @param map Map of the annotated class and name of the bean
+	  */
 	public void setAnnotattedMap( Map<String,Class<?>> map ){
 		this.annotattedMap = map;
 	}
 
+	/**
+	   * This is a main method where execution starts
+	   * @param args This is command line parameters
+	  */
 	public static void main(String[] args) {
 		Client client = new Client();
 		client.setAnnotattedMap(client.getUtil().allFoundClassesAnnotatedWithEntityToBeScanned());

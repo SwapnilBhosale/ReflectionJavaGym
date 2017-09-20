@@ -2,6 +2,12 @@ package com.swapnil.bean;
 
 import com.swapnil.annotation.Bean;
 
+
+/**
+ * @author Swapnil Bhosale
+ * This is just a POJO class for Student
+ */
+
 @Bean(name="student")
 public class Student {
 
