@@ -11,5 +11,6 @@ import com.swapnil.constant.DIType;
 @Target(ElementType.TYPE)
 public @interface Bean {
 
+	String name();
 	DIType type() default DIType.DIByConstructore;
 }
