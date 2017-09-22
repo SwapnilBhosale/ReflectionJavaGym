@@ -2,7 +2,7 @@
 
 ##### WIP
 
-### Trying to simulate Spring Dependency Injection technique using Java Reflection API
+### (Experimental) Spring Dependency Injection using Java Reflection API
 
 ## How to Run this project
 
