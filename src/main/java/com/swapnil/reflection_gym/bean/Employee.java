@@ -1,9 +1,9 @@
-package com.swapnil.bean;
+package com.swapnil.reflection_gym.bean;
 
 import java.math.BigDecimal;
 
-import com.swapnil.annotation.Bean;
-import com.swapnil.constant.DIType;
+import com.swapnil.reflection_gym.annotation.Bean;
+import com.swapnil.reflection_gym.constant.DIType;
 
 /**
  * @author Swapnil Bhosale

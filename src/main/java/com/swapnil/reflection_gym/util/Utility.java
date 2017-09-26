@@ -1,4 +1,4 @@
-package com.swapnil.util;
+package com.swapnil.reflection_gym.util;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -7,8 +7,8 @@ import java.util.Set;
 
 import org.reflections.Reflections;
 
-import com.swapnil.annotation.Bean;
-import com.swapnil.constant.Constants;
+import com.swapnil.reflection_gym.annotation.Bean;
+import com.swapnil.reflection_gym.constant.Constants;
 
 /**
  * @author Swapnil Bhosale
