@@ -6,9 +6,8 @@
 
 ## How to Run this project
 
-	1) Add jars to the build path from lib folder
-	2) Run the jUnit test cases from the test package
-		i) If all test cases passed then everything is working correctly
+	1) Maven build the project
+	2) mvn exec:java -Dexec.mainClass="com.swapnil.reflection_gym.client.Client"
 	
 #### How to use custom 'Bean' Annotation: 
 
