@@ -1,4 +1,4 @@
-package com.swapnil.constant;
+package com.swapnil.reflection_gym.constant;
 
 /**
  * @author Swapnil Bhosale

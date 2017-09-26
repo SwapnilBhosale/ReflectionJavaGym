@@ -1,4 +1,4 @@
-package com.swapnil.client;
+package com.swapnil.reflection_gym.client;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -8,12 +8,12 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.swapnil.annotation.Bean;
-import com.swapnil.bean.Employee;
-import com.swapnil.bean.Student;
-import com.swapnil.constant.Constants;
-import com.swapnil.constant.DIType;
-import com.swapnil.util.Utility;
+import com.swapnil.reflection_gym.annotation.Bean;
+import com.swapnil.reflection_gym.bean.Employee;
+import com.swapnil.reflection_gym.bean.Student;
+import com.swapnil.reflection_gym.constant.Constants;
+import com.swapnil.reflection_gym.constant.DIType;
+import com.swapnil.reflection_gym.util.Utility;
 
 
 /**
@@ -111,6 +111,7 @@ public class Client {
 	   * @param args This is command line parameters
 	  */
 	public static void main(String[] args) {
+		System.out.println("Inside main");
 		Client client = new Client();
 		client.setAnnotattedMap(client.getUtil().allFoundClassesAnnotatedWithEntityToBeScanned());
 		try {

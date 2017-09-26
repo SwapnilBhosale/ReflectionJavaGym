@@ -1,6 +1,6 @@
-package com.swapnil.bean;
+package com.swapnil.reflection_gym.bean;
 
-import com.swapnil.annotation.Bean;
+import com.swapnil.reflection_gym.annotation.Bean;
 
 
 /**

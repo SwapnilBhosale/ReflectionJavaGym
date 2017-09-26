@@ -1,5 +1,5 @@
 
-package com.swapnil.test;
+package com.swapnil.reflection_gym.test;
 
 import static org.junit.Assert.*;
 
@@ -10,10 +10,10 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.swapnil.bean.Employee;
-import com.swapnil.bean.Student;
-import com.swapnil.client.Client;
-import com.swapnil.constant.Constants;
+import com.swapnil.reflection_gym.bean.Employee;
+import com.swapnil.reflection_gym.bean.Student;
+import com.swapnil.reflection_gym.client.Client;
+import com.swapnil.reflection_gym.constant.Constants;
 
 /**
  * @author Swapnil Bhsale
